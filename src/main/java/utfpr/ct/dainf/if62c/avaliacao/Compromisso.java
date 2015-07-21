@@ -21,6 +21,14 @@ public class Compromisso {
         this.data = data;
         this.descricao = descricao;
     }
+    
+    public void removeCompromisso(Compromisso compromisso) {
+        avisos.remove(compromisso);
+    }
+    
+    public void removeAviso(Aviso aviso) {
+        avisos.remove(aviso);
+    }
 
     public Date getData() {
         return data;
