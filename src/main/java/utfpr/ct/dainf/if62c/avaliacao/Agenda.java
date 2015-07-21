@@ -39,18 +39,21 @@ public class Agenda {
     }
     
     public void novoAviso(Compromisso compromisso, int antecedencia) {
-
-        compromisso.registraAviso(new Aviso(compromisso));
+        Aviso av = new Aviso(compromisso);
+        
+        compromisso.registraAviso(av);
         Timer timer = new Timer(compromisso.getDescricao());
-        timer.schedule(new Aviso(compromisso), new Date(compromisso.getData().getTime() - antecedencia*1000));
+        timer.schedule(av, new Date(compromisso.getData().getTime() - antecedencia*1000));
         timer.schedule(new AvisoFinal(compromisso), compromisso.getData());
         
     }
     
     public void novoAviso(Compromisso compromisso, int antecedencia, int intervalo) {
-        compromisso.registraAviso(new Aviso(compromisso));
+        Aviso av = new Aviso(compromisso);
+        
+        compromisso.registraAviso(av);
         Timer timer = new Timer(compromisso.getDescricao());
-        timer.schedule(new Aviso(compromisso), new Date(compromisso.getData().getTime()
+        timer.schedule(av, new Date(compromisso.getData().getTime()
                 - antecedencia*1000), intervalo*1000);
         timer.schedule(new AvisoFinal(compromisso), compromisso.getData());
     }

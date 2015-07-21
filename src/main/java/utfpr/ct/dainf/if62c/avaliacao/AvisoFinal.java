@@ -1,5 +1,7 @@
 package utfpr.ct.dainf.if62c.avaliacao;
 
+import java.util.List;
+
 /**
  * IF62C Fundamentos de Programação 2
  * Avaliação parcial.
@@ -15,7 +17,9 @@ public class AvisoFinal extends Aviso {
         
         System.out.println(compromisso.getDescricao() + " começa agora");
         
-        cancel();
+        for(Aviso av : compromisso.getAvisos())
+            av.cancel();
+
     }
     
 }
